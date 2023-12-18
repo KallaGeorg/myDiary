@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="center">
+    <h1>Dagbok Test</h1>
+    
+    <label for="Date">Kalender</label>
+    <input id="Date" type="datetime-local"></br>
+    
+    <form method="post" th:action="@{/new-note}">
+    <label for="Headline">Rubrik</label>
+    <input id="Headline" type="text" name="headline">
+    
+    </br>
+    
+       
+    <label for="Note">Anteckning</label>
+    <textarea id="Note" rows="20" cols="60" name="diarynote"></textarea>
+    </br>
+    <button id="SaveBtn" type="submit">spara</button>
+    </form>
+   
+    <ul>
+        <ul th:each="note : ${notes}">
+            <h3 th:text="${note.date}"></h3>
+            <h2 th:text="${note.headline}"></h2>
+            <h4 th:text="${note.note}"></h4>
+            <a th:href="@{/delete(id=${note.id})}">radera</a>
+
+        </ul>
+    </ul>
+    </div>
+</body>
+</html>

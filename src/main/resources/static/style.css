@@ -1,0 +1,15 @@
+#center{
+    text-align: center;
+}
+#Headline{
+    margin-top: 20px;
+    padding-left: 5px;
+    padding-right: 15px;
+}
+
+#Date{
+padding-left: 20px;
+}
+#SaveBtn{
+    text-align-last: right;
+}
