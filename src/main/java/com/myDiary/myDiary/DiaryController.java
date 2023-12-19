@@ -1,6 +1,7 @@
 package com.myDiary.myDiary;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,11 +17,16 @@ public class DiaryController {
   @Autowired
   private DiaryRepository diaryRepository;
 
-   @GetMapping
+   @GetMapping("/")
    public String getIndex(Model model){
    model.addAttribute("notes", diaryRepository.findAll());
     return "index";
    } 
+   @GetMapping("/diary")
+   public String showDiary(Model model){
+      model.addAttribute("notes", diaryRepository.findAll());
+      return"diary";
+   }
  
     @PostMapping("/new-note")
     public String addHeadline(@RequestParam("headline")String headlineContent,
@@ -31,13 +37,21 @@ public class DiaryController {
      diarynote.setNote(noteContent);
      diarynote.setDate(date);
      diaryRepository.save(diarynote);
-     return "redirect:/";
+     return "redirect:/diary";
    }
  
    @GetMapping("/delete")
    public String deleteNote(@RequestParam int id){
     diaryRepository.deleteById(id);
+    return"redirect:/diary";
+    } 
 
-    return"redirect:/";
+   //   @GetMapping("/search")
+   //  public String showSearch(){
+   //    return"search";
+   //  }
+
+  
+    
    }
-}
+

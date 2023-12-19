@@ -1,11 +1,14 @@
 package com.myDiary.myDiary;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class editController {
@@ -15,7 +18,7 @@ public class editController {
     @GetMapping("/editForm")
      public String editPage(Model model){
         model.addAttribute("allNotes",diaryRepository.findAll());
-        return"redirect:/";
+        return"redirect:/diary";
 
     }
     @GetMapping("/editForm/{id}")
@@ -25,18 +28,31 @@ public class editController {
         return"editForm";
     }
     
+    // @PostMapping("/editForm/{id}")
+    // public String editNote(@PathVariable int id, DiaryNote changedNote){
+    //     DiaryNote currentNote = diaryRepository.findById(id).orElse(null);
+    //     if(currentNote != null){
+    //         currentNote.setDate(changedNote.getDate());
+    //         currentNote.setHeadline(changedNote.getHeadline());
+    //         currentNote.setNote(changedNote.getNote());
+    //         diaryRepository.save(changedNote);
+    //     }
+    //     return"redirect:/editForm";
+    // }
     @PostMapping("/editForm/{id}")
-    public String editNote(@PathVariable int id, DiaryNote changedNote){
-        DiaryNote currentNote = diaryRepository.findById(id).orElse(null);
-        if(currentNote != null){
-            currentNote.setDate(changedNote.getDate());
-            currentNote.setHeadline(changedNote.getHeadline());
-            currentNote.setNote(changedNote.getNote());
-            diaryRepository.save(changedNote);
-        }
-        return"redirect:/editForm";
+    public String editNote(@PathVariable int id,
+                            @RequestParam("date") String editDatetime,  
+                            @RequestParam("headline")String editHeadline,
+                            @RequestParam("note")String editNote){
+    DiaryNote currentDiaryNote = diaryRepository.findById(id).orElse(null);
+    if(currentDiaryNote != null){
+    currentDiaryNote.setDate(LocalDateTime.parse(editDatetime));
+    currentDiaryNote.setHeadline(editHeadline);
+    currentDiaryNote.setNote(editNote);
+                  diaryRepository.save(currentDiaryNote);     
     }
-
+    return"redirect:/editForm";
+     }
  
     
 }

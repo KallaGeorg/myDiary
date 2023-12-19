@@ -13,30 +13,18 @@
 
 <form th:action="@{/new-note}" method="post">
 <h3>Kalender</h3></br>
-<input id="Date" type="datetime-local" name="date">  
+<input id="Date" type="datetime-local" name="date" required>  
 </br>
 <h3>Rubrik</h3></br>
-<input id="Headline" type="text" name="headline">
+<input id="Headline" type="text" name="headline" required>
 </br>
 <h3>Anteckning</h3></br>
-<textarea id="Note" rows="20" cols="60" name="diarynote"></textarea>
+<textarea id="Note" rows="20" cols="60" name="diarynote" required></textarea>
 </br>
 <button id="SaveBtn" type="submit">spara</button>
 </form>
 
-<ul>
-    <ul th:each="note : ${notes}">
-       
-       
-        <h3 th:text="${note.date}"></h3>
-        <h2 th:text="${note.headline}"></h2>
-        <h4 th:text="${note.note}"></h4>
-        <a th:href="@{/editForm/{id}(id=${note.id})}">redigera</a></br>
-        <a th:href="@{/delete(id=${note.id})}">radera</a>
 
-
-    </ul>
-</ul>
     </div>
 </body>
 </html>
