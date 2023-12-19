@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+   
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="center">
+        <ul>
+            <form th:object="${diarynote}" th:action="@{/editForm/{id}(id=${diarynote.id})}" method="post">
+               <h3>Datum och tid</h3></br>
+               <input type="datetime-local" id="date" name="date">
+               <h2>Rubrik</h2></br>
+               <input type="text" id="headline" name="headline">
+               <h4>Anteckning</h4></br>
+               <textarea name="note" id="note" cols="30" rows="10"></textarea>
+               <button type="submit">spara</button>
+            </form>
+               
+        
+            </ul>
+        </ul>
+
+    </div>
+    
+</body>
+</html>

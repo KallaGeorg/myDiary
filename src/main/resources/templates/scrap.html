@@ -1,0 +1,7 @@
+<ul th:each="note : ${allNotes}">
+               
+               
+    <h3 th:text="${note.date}"></h3>
+    <h2 th:text="${note.headline}"></h2>
+    <h4 th:text="${note.note}"></h4>
+    <a th:href="@{/editForm/{id}(id=${note.id})}">redigera</a>
