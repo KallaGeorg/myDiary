@@ -9,6 +9,12 @@ import org.springframework.data.repository.query.Param;
 
 public interface DiaryRepository extends CrudRepository<DiaryNote, Integer> {
 
-   @Query("SELECT e FROM DiaryNote e WHERE e.date BETWEEN : firstDate AND : secondDate")
-   List<DiaryNote> dateSearcher(@Param("firstDate")LocalDateTime firstDate,@Param("secondDate")LocalDateTime secondDate);
-}
+   
+      @Query("SELECT d FROM DiaryNote d WHERE d.date <= :currentDateTime AND d.headline IS NOT NULL AND d.note IS NOT NULL")
+      List<DiaryNote> showActualEntity(LocalDateTime currentDateTime);
+
+      @Query("SELECT d FROM DiaryNote d WHERE d.date BETWEEN :startDateTime AND :endDateTime")
+      List<DiaryNote> notesBetween(@Param("startDateTime") LocalDateTime startDateTime,
+                                    @Param("endDateTime")LocalDateTime endDateTime);
+      
+   }

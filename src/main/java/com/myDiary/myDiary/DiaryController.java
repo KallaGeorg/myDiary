@@ -18,15 +18,16 @@ public class DiaryController {
   private DiaryRepository diaryRepository;
 
    @GetMapping("/")
-   public String getIndex(Model model){
-   model.addAttribute("notes", diaryRepository.findAll());
+   public String getIndex(){
     return "index";
    } 
-   @GetMapping("/diary")
-   public String showDiary(Model model){
-      model.addAttribute("notes", diaryRepository.findAll());
-      return"diary";
-   }
+    @GetMapping("/diary")
+    public String showDiary(Model model){
+      LocalDateTime currentDate = LocalDateTime.now();
+      List<DiaryNote> actualEntities = diaryRepository.showActualEntity(currentDate);
+       model.addAttribute("notes", actualEntities);
+       return"diary";
+    }
  
     @PostMapping("/new-note")
     public String addHeadline(@RequestParam("headline")String headlineContent,
@@ -46,10 +47,13 @@ public class DiaryController {
     return"redirect:/diary";
     } 
 
-   //   @GetMapping("/search")
-   //  public String showSearch(){
-   //    return"search";
-   //  }
+//   @GetMapping("/diary")
+//   public String actualNotes(Model model){
+//    LocalDateTime currentDateTime = LocalDateTime.now();
+//    List<DiaryNote> actualNote = diaryRepository.presentActualEntity(currentDateTime);
+//    model.addAttribute("notes", actualNote);
+//     return"diary";
+//   }
 
   
     

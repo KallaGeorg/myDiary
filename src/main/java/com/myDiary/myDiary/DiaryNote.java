@@ -18,11 +18,13 @@ public class DiaryNote {
     private String headline;
     private String note;
     private LocalDateTime date;
+   
 
     // public String getFormattedDateTime(){
     //     return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     // }
 
+    
     public int getId() {
         return id;
     }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="center">
+        <form th:action="@{/runSearch}" method="get">
+            <h4>Först datum</h4></br>
+            <input type="datetime-local" id="startDateTime" name="startDateTime" required></br>
+            <h4>Andra datum</h4></br>
+            <input type="datetime-local" id="endDateTime" name="endDateTime" required></br>
+            <button type="submit">sök</button>
+        </form>
+    
+    <ul th:if="${notesBetween1}">
+        <ul th:each=" note: ${notesBetween1}">
+            <h3 th:text="${note.date}"></h3>
+            <h2 th:text="${note.headline}"></h2>
+            <h4 th:text="${note.note}"></h4>
+    
+        </ul>
+    </ul> 
+      <a th:href="@{/}">Läggtill</a>
+    
+    </div>
+    
+</body>
+</html>
