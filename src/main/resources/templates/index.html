@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="pic">
     <div id="center">
  
-<h1>Dagbok Test</h1>
+<h1 id="titel">Gör dagens anteckning !</h1>
 
 <form th:action="@{/new-note}" method="post">
-<h3>Kalender</h3></br>
-<input id="Date" type="datetime-local" name="date" required>  
+<h3 id="kalender">Kalender</h3></br>
+<input id="DateIndex" type="datetime-local" name="date" required>  
 </br>
-<h3>Rubrik</h3></br>
-<input id="Headline" type="text" name="headline" required>
+<h3 id="rubrik">Rubrik</h3></br>
+<input id="HeadlineIndex" type="text" name="headline" required>
 </br>
-<h3>Anteckning</h3></br>
-<textarea id="Note" rows="20" cols="60" name="diarynote" required></textarea>
+<h3 id="anteckning">Anteckning</h3></br>
+<textarea id="NoteIndex" rows="10" cols="40" name="diarynote" required></textarea>
 </br>
 <button id="SaveBtn" type="submit">spara</button>
 </form>
-
-
+<button id="linkBtn3"><a th:href="@{/diary}">Titta på dagboken</a></button>
     </div>
 </body>
 </html>

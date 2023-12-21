@@ -6,26 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="listBackground">
+    
     <div id="center">
+        <div id="header" >
         <h1>Min Dagbok</h1>
+        <p>aktuella antecknigar</p>
+        </div>
         <ul>
-            <ul th:each="note : ${notes}">
+            <ul id="list" th:each="note : ${notes}">
                
                
-                <h3 th:text="${note.date}"></h3>
-                <h2 th:text="${note.headline}"></h2>
-                <h4 th:text="${note.note}"></h4>
-                <a th:href="@{/editForm/{id}(id=${note.id})}">redigera</a></br>
-                <a th:href="@{/delete(id=${note.id})}">radera</a>
+                <h3 id="Date" th:text="${note.date}"></h3>
+                <h2 id="Headline" th:text="${note.headline}"></h2>
+                <h4 id="Note" th:text="${note.note}"></h4>
+                <button id="redigeraBtn"><a  th:href="@{/editForm/{id}(id=${note.id})}">redigera</a> </button>
+                <button id="raderaBtn" ><a th:href="@{/delete(id=${note.id})}">radera</a></button>
         
         
             </ul>
         </ul>
-        <a th:href="@{/}">Lägg till anteckning</a>
-        <a th:href="@{/display}">Sök mellan datum</a>
+        <button id="linkBtn1" ><a th:href="@{/}">Lägg till anteckning</a></button> 
+        <button id="linkBtn2"><a th:href="@{/search}">Sök mellan datum</a></button> 
        
     </div>
+
    
 </body>
 </html>

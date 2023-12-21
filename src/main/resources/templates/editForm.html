@@ -10,21 +10,23 @@
 </head>
 <body>
     <div id="center">
+        <h1>Ändra anteckningar</h1>
         <ul>
             <form th:object="${diarynote}" th:action="@{/editForm/{id}(id=${diarynote.id})}" method="post">
                <h3>Datum och tid</h3></br>
-               <input type="datetime-local" id="date" name="date" th:field="*{date}" required>
+               <input type="datetime-local" id="DateIndex" name="date" th:field="*{date}" required>
                <h2>Rubrik</h2></br>
-               <input type="text" id="headline" name="headline" th:field="*{headline}" required>
+               <input type="text" id="HeadlineIndex" name="headline" th:field="*{headline}" required>
                <h4>Anteckning</h4></br>
-               <textarea name="note" id="note" cols="30" rows="10" th:field="*{note}" required></textarea>
+               <textarea name="note" id="NoteIndex" cols="30" rows="10" th:field="*{note}" required></textarea></br>
                <button type="submit">spara</button>
             </form>
                
         
             </ul>
         </ul>
-        <a th:href="@{/}">Lägg till anteckning</a>
+       <button id="linkBtn1"><a th:href="@{/}">Lägg till ny anteckning</a></button> 
+       <button id="linkBtn2"><a th:href="@{/diary}">Titta på dagboken</a></button>
         
     </div>
     

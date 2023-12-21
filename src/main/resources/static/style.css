@@ -1,15 +1,109 @@
 #center{
     text-align: center;
-}
-#Headline{
-    margin-top: 20px;
-    padding-left: 5px;
-    padding-right: 15px;
+ 
+    
 }
 
-#Date{
-padding-left: 20px;
-}
 #SaveBtn{
     text-align-last: right;
+    background-color: darkorchid;
+    font-size: 20px;
+}
+#Note{
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: -2px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+}
+#Headline{
+    font-size: 30px;
+    text-shadow: -3px 0 black, 0 3px black, 2px 0 black, 0 -2px black;
+   
+}
+#Date{
+    font-size: 20px;
+    text-shadow: -2px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+}
+#header{
+    font-size: 40px;
+    text-align: center;
+    background-color: rgb(33, 206, 110);
+
+    color: floralwhite;
+    padding: 30px;
+    text-shadow: -3px 0 black, 0 3px black, 2px 0 black, 0 -2px black;
+}
+#list{
+    background-color: cadetblue;
+    color: rgb(195, 240, 212);
+    padding: 0%;
+    
+}
+#pic{
+    background-image: url("Skärmbild 2023-12-21 134810.png");
+}
+#kalender{
+    color: rgb(73, 241, 73);
+    margin-bottom: 0%;
+
+}
+#rubrik{
+    color: gold;
+    margin-bottom: 0%;
+
+    
+}
+#anteckning{
+    color: hotpink;
+    margin-bottom: 0%;
+
+}
+#titel{
+    color: rgb(94, 235, 204);
+}
+#raderaBtn{
+    font-size: 15px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: orange;
+    margin-bottom: 10px;
+}
+#redigeraBtn{
+    font-size: 15px;
+    margin-right: 20px;
+    background-color: chartreuse;
+    margin-bottom: 10px;
+}
+#linkBtn1{
+    font-size: 15px;
+   display: inline-block;
+   
+}
+#linkBtn2{
+    font-size: 15px;
+    display: inline-block;
+   
+}
+#linkBtn3{
+    font-size: 15px;
+    display: inline-block;
+    background-color: aqua;
+   
+}
+#listBackground{
+    background-color: hotpink;
+
+}
+#NoteIndex{
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+#HeadlineIndex{
+    font-size: 30px;
+    
+   
+}
+#DateIndex{
+    font-size: 20px;
+    
 }

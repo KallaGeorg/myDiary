@@ -16,9 +16,9 @@ public class searchController {
      @Autowired
   private DiaryRepository diaryRepository;
 
-  @GetMapping("/display")
-   public String showForm(){
-    return"display";
+  @GetMapping("/search")
+   public String searchForm(){
+    return"search";
 }
 
     @GetMapping("/runSearch")
@@ -27,7 +27,7 @@ public class searchController {
                                              RedirectAttributes redirectAttributes){
      List<DiaryNote> notesBetween1 = diaryRepository.notesBetween(startDateTime,endDateTime);
      redirectAttributes.addFlashAttribute("notesBetween1", notesBetween1);
-     return"redirect:/display";
+     return"redirect:/search";
     }
       
     
