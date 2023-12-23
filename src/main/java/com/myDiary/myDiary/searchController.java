@@ -21,6 +21,8 @@ public class searchController {
     return"search";
 }
 
+
+
     @GetMapping("/runSearch")
    public String showNotesBetween(Model model,@RequestParam("startDateTime") LocalDateTime startDateTime,
                                              @RequestParam("endDateTime")LocalDateTime endDateTime,
@@ -30,5 +32,5 @@ public class searchController {
      return"redirect:/search";
     }
       
-    
+ 
 }

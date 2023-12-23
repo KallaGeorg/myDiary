@@ -27,18 +27,7 @@ public class editController {
         model.addAttribute("diarynote", diarynote);
         return"editForm";
     }
-    
-    // @PostMapping("/editForm/{id}")
-    // public String editNote(@PathVariable int id, DiaryNote changedNote){
-    //     DiaryNote currentNote = diaryRepository.findById(id).orElse(null);
-    //     if(currentNote != null){
-    //         currentNote.setDate(changedNote.getDate());
-    //         currentNote.setHeadline(changedNote.getHeadline());
-    //         currentNote.setNote(changedNote.getNote());
-    //         diaryRepository.save(changedNote);
-    //     }
-    //     return"redirect:/editForm";
-    // }
+  
     @PostMapping("/editForm/{id}")
     public String editNote(@PathVariable int id,
                             @RequestParam("date") String editDatetime,  

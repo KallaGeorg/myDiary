@@ -8,11 +8,14 @@
 </head>
 <body id="listBackground">
     
-    <div id="center">
+    
         <div id="header" >
         <h1>Min Dagbok</h1>
         <p>aktuella antecknigar</p>
+        <img src= "Skärmbild 2023-12-23 141503.png" id="pic2">
+        <img src="Skärmbild 2023-12-23 145638.png" id="pic3">
         </div>
+        <div id="center">
         <ul>
             <ul id="list" th:each="note : ${notes}">
                
@@ -20,7 +23,7 @@
                 <h3 id="Date" th:text="${note.date}"></h3>
                 <h2 id="Headline" th:text="${note.headline}"></h2>
                 <h4 id="Note" th:text="${note.note}"></h4>
-                <button id="redigeraBtn"><a  th:href="@{/editForm/{id}(id=${note.id})}">redigera</a> </button>
+                <button id="redigeraBtn"><a  th:href="@{/editForm/{id}(id=${note.id})}">ändra</a> </button>
                 <button id="raderaBtn" ><a th:href="@{/delete(id=${note.id})}">radera</a></button>
         
         
@@ -28,7 +31,7 @@
         </ul>
         <button id="linkBtn1" ><a th:href="@{/}">Lägg till anteckning</a></button> 
         <button id="linkBtn2"><a th:href="@{/search}">Sök mellan datum</a></button> 
-       
+      
     </div>
 
    

@@ -6,25 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="bodySearch">
+    <div id="searchHeader">
+        <h1>Anteckningar mellan två datum</h1>
+        <img src="Skärmbild 2023-12-23 152655.png" id="pic4">
+        <img src="Skärmbild 2023-12-23 153540.png" id="pic5">
+    </div>
     <div id="center">
         <form th:action="@{/runSearch}" method="get">
-            <h4>Först datum</h4></br>
-            <input type="datetime-local" id="startDateTime" name="startDateTime" required></br>
-            <h4>Andra datum</h4></br>
-            <input type="datetime-local" id="endDateTime" name="endDateTime" required></br>
-            <button type="submit">sök</button>
+            <h4 id="kalender2">Först datum</h4></br>
+            <input type="datetime-local" id="DateIndex" name="startDateTime" required></br>
+            <h4 id="kalender2">Andra datum</h4></br>
+            <input type="datetime-local" id="DateIndex" name="endDateTime" required></br>
+            <button id="searchBtn" type="submit">s ö k</button>
         </form>
     
     <ul th:if="${notesBetween1}">
-        <ul th:each=" note: ${notesBetween1}">
-            <h3 th:text="${note.date}"></h3>
-            <h2 th:text="${note.headline}"></h2>
-            <h4 th:text="${note.note}"></h4>
+        <ul id="listSearch" th:each=" note: ${notesBetween1}">
+            <h4 id="structureSearch">Datum:</h4>
+            <h3 id="DateSearch" th:text="${note.date}"></h3>
+            <h4 id="structureSearch">Rubrik:</h4>
+            <h2 id="HeadlineSearch" th:text="${note.headline}"></h2>
+            <h4 id="structureSearch">Anteckning</h4>
+            <h4 id="NoteSearch" th:text="${note.note}"></h4>
+            <button id="redigeraBtn"><a  th:href="@{/editForm/{id}(id=${note.id})}">ändra</a> </button>
+          
     
         </ul>
     </ul> 
-      <a th:href="@{/}">Läggtill</a>
+    <button id="linkBtn1" ><a th:href="@{/}">Lägg till anteckning</a></button>
+    <button id="linkBtn3"><a th:href="@{/diary}">Titta på dagboken</a></button>
     
     </div>
     

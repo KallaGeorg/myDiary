@@ -8,18 +8,25 @@
     
     <title>Document</title>
 </head>
-<body>
+
+<body id="editBody">
+    <div id="editHeader">
+        <h1>Ändra anteckning</h1>
+    </div>
+    <img id="pic6">
+    <img id="pic7">
     <div id="center">
-        <h1>Ändra anteckningar</h1>
+       
+       
         <ul>
             <form th:object="${diarynote}" th:action="@{/editForm/{id}(id=${diarynote.id})}" method="post">
-               <h3>Datum och tid</h3></br>
+               <h3 id="kalender">Datum och tid</h3></br>
                <input type="datetime-local" id="DateIndex" name="date" th:field="*{date}" required>
-               <h2>Rubrik</h2></br>
+               <h2 id="rubrik">Rubrik</h2></br>
                <input type="text" id="HeadlineIndex" name="headline" th:field="*{headline}" required>
-               <h4>Anteckning</h4></br>
+               <h4 id="anteckning">Anteckning</h4></br>
                <textarea name="note" id="NoteIndex" cols="30" rows="10" th:field="*{note}" required></textarea></br>
-               <button type="submit">spara</button>
+               <button id="saveBtnEdit" type="submit">spara</button>
             </form>
                
         

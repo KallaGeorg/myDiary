@@ -47,15 +47,5 @@ public class DiaryController {
     return"redirect:/diary";
     } 
 
-//   @GetMapping("/diary")
-//   public String actualNotes(Model model){
-//    LocalDateTime currentDateTime = LocalDateTime.now();
-//    List<DiaryNote> actualNote = diaryRepository.presentActualEntity(currentDateTime);
-//    model.addAttribute("notes", actualNote);
-//     return"diary";
-//   }
-
-  
-    
    }
 
